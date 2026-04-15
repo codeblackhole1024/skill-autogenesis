@@ -1,7 +1,7 @@
 ---
 name: skill-autogenesis
-description: Automatically analyze completed work, summarize reusable procedures, detect repeated task patterns, and create new skills when repetition crosses a threshold. Built for agents that need self-improving procedural memory in Hermes, OpenClaw, or similar tool-using environments.
-version: 1.2.0
+description: Review completed work, summarize reusable procedures, identify recurring workflow patterns, and propose or maintain skills using documented lifecycle rules and verification gates. Built for agents that need structured procedural memory in Hermes, OpenClaw, or similar tool-using environments.
+version: 1.2.1
 author: Agent Skill Master
 license: MIT
 metadata:
@@ -19,7 +19,7 @@ This skill makes the agent do five things during normal task execution:
 2. Summarize the reusable procedure.
 3. Track whether the same pattern keeps recurring.
 4. Apply `skill_manage`-style lifecycle rules for create, patch, edit, write_file, and remove_file behavior.
-5. Create a new skill automatically when the repetition threshold is met and the workflow is stable enough.
+5. Recommend or create a skill when the repetition threshold is met, the workflow is stable, and the environment policy allows it.
 
 This skill is inspired by Hermes Agent's agent-managed skill behavior and its guidance to save complex or non-trivial workflows as skills. Source links are listed in `references/sources.md`.
 
@@ -127,7 +127,7 @@ Default policy:
 
 ### Phase 5. Create the skill
 
-If `skill_manage` exists, create a new skill.
+If `skill_manage` exists, create a new skill only when the recurrence threshold is met, the workflow has passed verification, and the active environment allows autonomous skill creation.
 If the environment uses a different skill API, map the same lifecycle actions semantically.
 If no skill creation capability exists, produce a complete `SKILL.md` draft and `README.md` draft for the user or parent agent to save.
 
