@@ -4,9 +4,9 @@
 
 ### Overview
 
-`skill-autogenesis` enables an agent to summarize completed work, detect recurring workflows, and automatically convert stable high-frequency procedures into reusable skills.
+`skill-autogenesis` enables an agent to summarize completed work, detect recurring workflows, and turn stable high-frequency procedures into reusable skills through explicit lifecycle rules and verification checks.
 
-It is intended for Hermes, OpenClaw, and similar tool-using agents that benefit from procedural memory without changing core runtime code.
+It is intended for Hermes, OpenClaw, and similar tool-using agents that benefit from structured procedural memory without changing core runtime code.
 
 ### What problem it solves
 
@@ -18,7 +18,7 @@ This skill turns that transient success into durable operational knowledge.
 
 - Summarizes completed work into reusable procedures
 - Detects recurrence from session context, memory, and session history when available
-- Auto-creates skills when repetition and stability thresholds are met
+- Creates or recommends skills only when repetition, stability, and verification thresholds are met
 - Applies `skill_manage`-style lifecycle handling for create, patch, edit, write_file, and remove_file
 - Updates related existing skills instead of creating duplicates
 - Preserves safety boundaries by excluding secrets and requiring verification
@@ -36,6 +36,7 @@ This skill turns that transient success into durable operational knowledge.
 
 - `SKILL.md` for the operational instructions
 - `README.md` for human-facing overview
+- `CHANGELOG.md` for release history
 - `references/sources.md` for the source links used to ground the logic
 
 ## 中文
@@ -56,7 +57,7 @@ This skill turns that transient success into durable operational knowledge.
 
 - 把完成的工作总结为可复用流程
 - 在可用时结合当前会话、memory、session history 判断重复度
-- 当重复度和稳定性达到阈值时自动创建 skill
+- 仅在重复度、稳定性和验证条件满足时创建或建议 skill
 - 优先更新相关旧 skill，而不是重复创建
 - 通过排除密钥和要求验证步骤来保持安全边界
 
